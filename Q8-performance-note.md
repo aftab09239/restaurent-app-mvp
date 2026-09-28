@@ -1,0 +1,3 @@
+# Q8 Performance Note
+
+`useMemo` and `useCallback` should not be added automatically to every value or function. They have their own bookkeeping cost and can make code harder to read. `useMemo` is useful when a derived calculation is expensive or when a stable value prevents meaningful child work. `useCallback` is useful when a function is passed to a memoized child or is part of another hook's dependency list. For a tiny calculation or a component that always re-renders anyway, memoization usually adds complexity without a practical benefit. The Restaurant App uses memoization where it demonstrates a clear assignment concept: menu filtering/sorting, order totals, context values, and stable handlers for `React.memo` menu cards.
